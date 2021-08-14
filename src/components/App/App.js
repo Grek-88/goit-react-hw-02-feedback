@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import s from "./App.module.css";
 
 import FeedbackOptions from "../FeedbackOptions/FeedbackOptions";
-import Statistics from "../Statistics/Statistics";
+import StatisticsList from "../StatisticsList/StatisticsList";
 import Section from "../Section/Section";
 import Notification from "../Notification/Notification";
 
@@ -45,7 +45,6 @@ class App extends Component {
 
   countPositiveFeedbackPercentage() {
     const total = this.countTotalFeedback();
-    console.log(total);
     const positiv = (total ? (this.state.good / total) * 100 : 0).toFixed(2);
     return positiv;
   }
@@ -59,7 +58,7 @@ class App extends Component {
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() ? (
-            <Statistics
+            <StatisticsList
               good={good}
               neutral={neutral}
               bad={bad}
